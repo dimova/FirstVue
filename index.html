@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css"/>
+    <title>Vue.js Basics</title>
+</head>
+<body>
+
+    <!-- Step 2: Wrap everything in #app -->
+    <div id="app">
+        <span>{{ emoji }}</span>
+        <h1>{{ statusCode }}</h1>
+        <p>{{ message }}</p>
+        <a :href="'http://google.com'" target="_blank">{{ linkText }}</a>
+    </div>
+
+    <!-- Step 1: Include Vue CDN -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+        // Step 3: Import createApp and ref
+        const { createApp, ref } = Vue
+
+        // Step 4: Create Vue app and mount it
+        createApp({
+            setup() {
+
+                // Step 5: Create four ref() variables
+                const emoji = ref('🤖')
+                const statusCode = ref('500')
+                const message = ref('Oops! Something went wrong. Our robots are working on it.')
+                const linkText = ref('Go back to safety →')
+
+                return {
+                    emoji,
+                    statusCode,
+                    message,
+                    linkText
+                }
+            }
+        }).mount('#app')
+    </script>
+
+</body>
+</html>
